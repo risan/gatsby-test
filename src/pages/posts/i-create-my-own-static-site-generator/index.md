@@ -34,7 +34,7 @@ Luckily Javascript has a vibrant community. With its NPM ecosystem, there are to
 
 Although there's no lego block heavier than a black hole 😛
 
-![Heaviest objects in the universe](/img/2018-02-11-i-create-my-own-static-site-generator/heaviest-object-in-the-universe.png)
+![Heaviest objects in the universe](heaviest-object-in-the-universe.png)
 
 Here are some packages that I use for building this website generator:
 
@@ -222,7 +222,7 @@ self.addEventListener('activate', event => {
 
 I'm really happy with my current blog setup. The look and feel are still simple. The performance is also better. It easily scored 100 on almost every [Lighthouse](https://developers.google.com/web/tools/lighthouse/) matrix categories.
 
-![It scored 100 on almost every Lighthouse matrix](/img/2018-02-11-i-create-my-own-static-site-generator/lighthouse-report.png)
+![It scored 100 on almost every Lighthouse matrix](lighthouse-report.png)
 
 Hopefully, I don't easily seduce by the Dark Side again and put my effort on the writing part instead 🤞. There are also two more things that I haven't covered here:
 

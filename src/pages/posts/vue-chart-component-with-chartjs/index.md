@@ -72,7 +72,7 @@ $ yarn serve
 
 Once the development server is running, open the [localhost:8080](http://localhost:8080) address on your browser. You should see your Vue project.
 
-![Vue CLI new project starter](/img/2018-10-14-vue-chart-component-with-chartjs/01-vue-cli-project.png)
+![Vue CLI new project starter](01-vue-cli-project.png)
 
 Press `CTRL + c` to stop the development server. We're going to code from scratch, so we won't need any of the provided boilerplate code on `src` directory. Let's delete them!
 
@@ -155,7 +155,7 @@ $ yarn serve
 
 You should now see your line chart plotted on the browser!
 
-![Our First Line Chart](/img/2018-10-14-vue-chart-component-with-chartjs/02-first-line-chart.png)
+![Our First Line Chart](02-first-line-chart.png)
 
 Note that even though we set the `width` to `500` and the `height` to `300`, the generated chart will occupy the entire screen. That's because, by default, Chart.js will generate a responsive chart that will occupy its parent container. You may also notice that even though it's stretched out, by default Chart.js will still maintain the original aspect ratio (5:3).
 
@@ -233,7 +233,7 @@ new Chart(document.getElementById('my-chart'), {
 
 Now, if we visit the project's URL, we should see the similar result:
 
-![With Multiple Datasets](/img/2018-10-14-vue-chart-component-with-chartjs/03-multiple-datasets.png)
+![With Multiple Datasets](03-multiple-datasets.png)
 
 ### Configuring Our Line Chart
 
@@ -272,7 +272,7 @@ rgba(red, green, blue, alpha)
 
 If we check our project on the browser, we should now have a colorful chart like this:
 
-![Colorful Chart](/img/2018-10-14-vue-chart-component-with-chartjs/04-colorful-chart.png)
+![Colorful Chart](04-colorful-chart.png)
 
 #### Configuring the Y-Axis Label
 
@@ -298,7 +298,7 @@ new Chart(document.getElementById('my-chart'), {
 
 Our line chart should now look like the following image.
 
-![Starts at Zero](/img/2018-10-14-vue-chart-component-with-chartjs/05-starts-at-zero.png)
+![Starts at Zero](05-starts-at-zero.png)
 
 Also, wouldn't it be nice if we can put some dollar or other currency symbols on the y-axis? Let's put it then! But first, let's pull another library for number formatting: [Numeral.js](http://numeraljs.com). So we don't have to deal with the currency formatting on this tutorial 😛.
 
@@ -335,13 +335,13 @@ new Chart(document.getElementById('my-chart'), {
 
 The y-axis label should now have the currency symbol. Read more about all available [axes configuration](http://www.chartjs.org/docs/latest/axes/) and [labelling](http://www.chartjs.org/docs/latest/axes/labelling.html).
 
-![Formatting the Axis Label](/img/2018-10-14-vue-chart-component-with-chartjs/06-format-axis-label.png)
+![Formatting the Axis Label](06-format-axis-label.png)
 
 #### Configuring the Tooltip
 
 Even though we already formatted the y-axis label, but if you hover or click on any of the data points, the displayed y-axis value is still not formatted.
 
-![Y-Axis Value is Not Formatted on Tooltip](/img/2018-10-14-vue-chart-component-with-chartjs/07-default-tooltip.png)
+![Y-Axis Value is Not Formatted on Tooltip](07-default-tooltip.png)
 
 To get around this, we have to provide a function to the `tooltips.callbacks.label` options like this:
 
@@ -379,7 +379,7 @@ This `label` callback, received two arguments:
 
 If we check our project on the browser again, we should now have a nicely formatted data displayed on our tooltip.
 
-![Nicely Formatted Tooltip Data](/img/2018-10-14-vue-chart-component-with-chartjs/08-formatted-tooltip.png)
+![Nicely Formatted Tooltip Data](08-formatted-tooltip.png)
 
 In our case, wouldn't it be nice if the tooltip can also display the sales amount from both of the datasets? To achieve this, we simply have to set the tooltip's `mode` to `index`:
 
@@ -405,7 +405,7 @@ new Chart(document.getElementById('my-chart'), {
 
 Now, when we hover to some data point, the tooltip should now display the sales amount from both datasets. Read more about all available [tooltip configuration](http://www.chartjs.org/docs/latest/configuration/tooltip.html) and [interaction modes](http://www.chartjs.org/docs/latest/general/interactions/modes.html#interaction-modes).
 
-![Nicely Formatted Tooltip Data](/img/2018-10-14-vue-chart-component-with-chartjs/09-tooltip-index-mode.png)
+![Nicely Formatted Tooltip Data](09-tooltip-index-mode.png)
 
 ### Making it Prettier
 
@@ -465,7 +465,7 @@ Open the `public/index.html` file again, and let's add some simple [navbar](http
 
 I won't go into detail. It just some basic Bulma UI elements. Now we should have some decent looking layout.
 
-![Prettier with Bulma](/img/2018-10-14-vue-chart-component-with-chartjs/10-prettier-with-bulma.png)
+![Prettier with Bulma](10-prettier-with-bulma.png)
 
 ## Integrating Chart.js into Vue
 
@@ -531,7 +531,7 @@ new Vue({
 
 Our chart should now be gone. It's just a title and someempty box now. Let's put back our chart!
 
-![Empty Vue App](/img/2018-10-14-vue-chart-component-with-chartjs/11-empty-vue-app.png)
+![Empty Vue App](11-empty-vue-app.png)
 
 ### The Monthly Sales Chart Component
 
@@ -593,7 +593,7 @@ export default {
 
 If things go well, we should see the line chart again:
 
-![Monthly Sales Chart Component](/img/2018-10-14-vue-chart-component-with-chartjs/12-monthly-sales-chart-component.png)
+![Monthly Sales Chart Component](12-monthly-sales-chart-component.png)
 
 ## The Line Chart Component
 
@@ -761,7 +761,7 @@ export default {
 
 We should now see the **Sales 2018** and the **Sales 2017** datasets again. The chart that we used to have: two different colors, currency formatted y-axis, and tooltip!
 
-![A Complete Monthly Sales Chart](/img/2018-10-14-vue-chart-component-with-chartjs/13-vue-chart-full-config.png)
+![A Complete Monthly Sales Chart](13-vue-chart-full-config.png)
 
 ## Reactive Chart
 

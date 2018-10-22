@@ -144,7 +144,7 @@ The first parameter is the DOM element where the map will be displayed. In our c
 
 Now if we open up our page in the browser, we should see our map is successfully loaded like this:
 
-![Our map is loaded on the page](/img/2018-03-16-track-user-location-google-maps/01-google-maps.png)
+![Our map is loaded on the page](01-google-maps.png)
 
 ## Adding Marker to Your Map
 
@@ -173,7 +173,7 @@ It accepts a single argument: an object of marker's options. The `map` property 
 
 We should now see the marker placed on the map.
 
-![Marker on the map](/img/2018-03-16-track-user-location-google-maps/02-google-maps-with-marker.png)
+![Marker on the map](02-google-maps-with-marker.png)
 
 ## Get User's Location
 
@@ -242,7 +242,7 @@ navigator.geolocation.getCurrentPosition(
 
 Open our page in the browser. It will ask your permission to get your current location. Click **Allow** to give it permission and proceed.
 
-![Permission to get your location](/img/2018-03-16-track-user-location-google-maps/03-want-to-konw-your-location.png)
+![Permission to get your location](03-want-to-konw-your-location.png)
 
 > ⚠️ Geolocation API is only available in HTTPS
 >
@@ -250,13 +250,13 @@ Open our page in the browser. It will ask your permission to get your current lo
 
 If it's successful, you'll get your location printed on the console similar to this:
 
-![Location is successfully retrieved](/img/2018-03-16-track-user-location-google-maps/04-location-retrieved-successfully.png)
+![Location is successfully retrieved](04-location-retrieved-successfully.png)
 
 ### Simulating User's Location on Chrome
 
 On Chrome, we can simulate the user's location. Open up your developer tools. Click on the three-vertical-dots button on the top-right of your developer tools screen. Click on **More tools** >> **Sensors** menu. It will bring a new tab named **Sensors** where you can easily override the position.
 
-![Sensors tab](/img/2018-03-16-track-user-location-google-maps/05-sensors-tab.png)
+![Sensors tab](05-sensors-tab.png)
 
 There's also some presets for various city locations that we can choose from. Select some cities and reload the page, you should get the city's location printed on the console.
 
@@ -264,7 +264,7 @@ There's also some presets for various city locations that we can choose from. Se
 
 From the `Sensors` tab, you can also simulate the position unavailable error. From the drop-down select `Location unavailable` option and reload the page. You'll get an alert like this:
 
-![Location unavailable error](/img/2018-03-16-track-user-location-google-maps/06-location-unavailable-error.png)
+![Location unavailable error](06-location-unavailable-error.png)
 
 We only got the error `code`, but the `message` property is empty. Apparently, the specification already specifies that this `message` property is for debugging only and not to be shown directly to the user. That's why we should rely on the `code` and provide our own error message instead.
 

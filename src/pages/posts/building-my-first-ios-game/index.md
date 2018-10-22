@@ -494,11 +494,11 @@ This little quest of mine, leading me to find more tutorials about building iOS 
 
 ##### [1. Auto layout practice](https://github.com/risan/autolayout-ios)
 
-![Auto Layout Practice](/img/2018-10-10-building-my-first-ios-game/auto-layout.jpg)
+![Auto Layout Practice](auto-layout.jpg)
 
 ##### [2. Stack Views practice](https://github.com/risan/stack-views-ios)
 
-![Stack Views Practice](/img/2018-10-10-building-my-first-ios-game/stack-views.jpg)
+![Stack Views Practice](stack-views.jpg)
 
 ##### [3. Creating a paginated sliding cards](https://github.com/risan/sliding-cards-ios)
 
