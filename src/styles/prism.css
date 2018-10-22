@@ -16,21 +16,6 @@ code, pre {
             hyphens: none;
 }
 
-/* Code blocks */
-pre {
-    overflow-y: auto;
-    padding: 1rem;
-    margin: 0 0 1.5rem 0;
-    background: #25253c;
-    border-radius: 3px;
-}
-
-pre code {
-    color: #f8f8f2;
-    font-size: .78rem;
-    word-break: normal;
-}
-
 /* Inline code */
 :not(pre) > code {
     font-size: .8rem;
@@ -39,6 +24,46 @@ pre code {
     padding: .1rem .3rem;
     background: #f5f5fa;
     border-radius: 3px;
+}
+
+/**
+ * Code blocks hack for line highlighting.
+ * When the highlighted line is wider then the pre container, the hidden part
+ * won't get highlighted. To fix this, we move the styling from pre tag into
+ * the .gatsby-highlight container.
+ *
+ * 1. Make the element just wide enough to fit its content.
+ * 2. Always fill the visible space in .gatsby-highlight.
+ * 3. Adjust the position of the line numbers
+ */
+.gatsby-highlight {
+    background-color: #25253c;
+    border-radius: 3px;
+    margin: 0 0 1.5rem 0;
+    padding: 1rem;
+    overflow: auto;
+}
+
+pre {
+    float: left; /* 1 */
+    min-width: 100%; /* 2 */
+    margin: 0;
+}
+
+pre code {
+    color: #f8f8f2;
+    font-size: .78rem;
+    word-break: normal;
+}
+
+/* Code highlighting */
+.gatsby-highlight-code-line {
+    background-color: #302f4e;
+    display: block;
+    margin-right: -1rem;
+    margin-left: -1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
 }
 
 .token.comment,
