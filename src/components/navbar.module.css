@@ -1,0 +1,13 @@
+.menu {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+}
+
+.menu li:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.menu a {
+  display: block;
+}
