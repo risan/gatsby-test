@@ -13,6 +13,13 @@ bootstrapTheme.overrideThemeStyles = ({ rhythm }, options) => ({
   },
   "a:hover": {
     color: "#bf3599"
+  },
+  "li li, li > p:first-child": {
+    marginBottom: rhythm(1/4)
+  },
+  "li > ul, li > ol, li > ul:last-child, li > ol:last-child": {
+    marginTop: 0,
+    marginBottom: rhythm(1/2)
   }
 });
 
