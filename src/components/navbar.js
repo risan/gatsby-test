@@ -4,17 +4,20 @@ import Container from "./container";
 import styles from "./navbar.module.css";
 
 export default () => (
-  <nav>
+  <nav className={styles.navbar}>
     <Container>
       <ul className={styles.menu}>
         <li>
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/posts">Posts</Link>
+          <Link to="/posts/">Posts</Link>
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <Link to="/logs/">Logs</Link>
+        </li>
+        <li>
+          <Link to="/about/">About</Link>
         </li>
       </ul>
     </Container>

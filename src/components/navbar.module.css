@@ -1,13 +1,25 @@
+.navbar {
+    margin-bottom: 1rem;
+}
+
 .menu {
     list-style-type: none;
     display: flex;
+    flex-wrap: wrap;
     margin: 0;
 }
 
 .menu li:not(:last-child) {
-  margin-right: 1rem;
+    margin-right: 1rem;
 }
 
 .menu a {
-  display: block;
+    display: block;
+    padding: .25rem .75rem;
+    border: 1px solid #3935bf;
+    border-radius: 3px;
+}
+
+.menu a:hover {
+    border-color: #bf3599;
 }

@@ -1,0 +1,52 @@
+.link {
+    text-decoration: none;
+    display: block;
+}
+
+.link:not(:last-child) {
+    margin-bottom: 1.5rem;
+}
+
+.image-container {
+    margin-bottom: .25rem;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    margin: 0;
+}
+
+.title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: .25rem;
+    line-height: 1.25;
+}
+
+.excerpt {
+    color: rgba(0, 0, 0, .77);
+    margin-bottom: .25rem;
+}
+
+.time {
+    color: rgba(0, 0, 0, .3);
+}
+
+@media (min-width: 500px) {
+    .container {
+        display: flex;
+    }
+
+    .image-container {
+        flex: 1 0 150px;
+        margin-bottom: 0;
+        margin-right: 1rem;
+    }
+}
+
+@media (min-width: 640px) {
+    .image-container {
+        flex-basis: 170px;
+    }
+}

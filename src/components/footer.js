@@ -1,8 +1,9 @@
 import React from "react";
 import Container from "./container";
+import styles from "./footer.module.css";
 
 export default () => (
-  <footer>
+  <footer className={styles.footer}>
     <Container>
       <p>
         Except where otherwise noted, content on this blog is licensed under a

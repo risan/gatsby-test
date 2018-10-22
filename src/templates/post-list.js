@@ -1,31 +1,28 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import Layout from "../components/layout";
+import PostLink from "../components/post-link";
+import Pagination from "../components/pagination";
 
 export default ({ data, pageContext }) => (
   <Layout>
     <div>
       {data.allMarkdownRemark.edges.map(({ node }) => (
-        <Link to={node.fields.slug} key={node.id}>
-          <article>
-            <div>
-              <img src={node.fields.image.childImageSharp.featured_thumb.src} alt="Featured" />
-            </div>
-            <div>
-              <h3>{node.frontmatter.title}</h3>
-              <p>{node.excerpt}</p>
-              <time>{node.frontmatter.date}</time>
-            </div>
-          </article>
-        </Link>
+        <PostLink
+          key={node.id}
+          path={node.fields.slug}
+          image={node.fields.image.childImageSharp.featured_thumb.src}
+          title={node.frontmatter.title}
+          excerpt={node.excerpt}
+          date={node.frontmatter.date}
+        />
       ))}
     </div>
-    {pageContext.previousPage &&
-      <Link to={pageContext.previousPage}>Newer Posts</Link>
-    }
-    {pageContext.nextPage &&
-      <Link to={pageContext.nextPage}>Older Posts</Link>
-    }
+
+    <Pagination
+      previousPage={pageContext.previousPage}
+      nextPage={pageContext.nextPage}
+    />
   </Layout>
 );
 
@@ -53,7 +50,11 @@ export const query = graphql`
             slug
             image {
               childImageSharp {
-                featured_thumb: resize(width: 400) {
+                featured_thumb: resize(
+                  width: 400
+                  height: 250
+                  cropFocus: CENTER
+                ) {
                   src
                 }
               }
@@ -64,7 +65,7 @@ export const query = graphql`
             date(formatString: "DD MMMM YYYY")
           }
           excerpt(
-            pruneLength: 150
+            pruneLength: 120
             truncate: false
           )
         }

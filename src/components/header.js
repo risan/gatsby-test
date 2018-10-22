@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql, Link, StaticQuery } from "gatsby";
 import Container from "./container";
+import styles from "./header.module.css";
 
 export default () => (
   <StaticQuery
@@ -8,17 +9,23 @@ export default () => (
       query {
         site {
           siteMetadata {
-            title
+            headerTitle
+            headerDescription
           }
         }
       }
     `}
     render={data => (
-      <header>
+      <header className={styles.header}>
         <Container>
           <Link to="/">
-            <h1>{data.site.siteMetadata.title}</h1>
+            <h1 className={styles.title}>
+              {data.site.siteMetadata.headerTitle}
+            </h1>
           </Link>
+          <h2 className={styles.description}>
+            {data.site.siteMetadata.headerDescription}
+          </h2>
         </Container>
       </header>
     )}

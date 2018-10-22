@@ -63,7 +63,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) =>
         /^\/posts\//.test(node.fields.slug)
       );
 
-      const perPage = 10;
+      const perPage = 5;
       const totalPages = Math.ceil(posts.length / perPage);
 
       const getPagePath = page => page === 1
@@ -73,16 +73,16 @@ exports.createPages = ({ graphql, actions: { createPage } }) =>
       for (let currentPage = 1; currentPage <= totalPages; currentPage++) {
         createPage({
           path: getPagePath(currentPage),
-          component: path.resolve("./src/templates/posts.js"),
+          component: path.resolve("./src/templates/post-list.js"),
           context: {
             limit: perPage,
             skip: (currentPage - 1) * perPage,
             previousPage: currentPage === 1
               ? null
-              : getPagePath(currentPage - 1),
+              : getPagePath(currentPage - 1) + '/',
             nextPage: currentPage === totalPages
               ? null
-              : getPagePath(currentPage + 1)
+              : getPagePath(currentPage + 1) + '/'
           }
         });
       }

@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: "Risan"
+    headerTitle: "Risan Bagja",
+    headerDescription: "A journal of a passionate coder"
   },
   plugins: [
     "gatsby-plugin-sharp",
