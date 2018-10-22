@@ -4,15 +4,22 @@ import Layout from "../components/layout";
 
 export default ({ data, pageContext }) => (
   <Layout>
-    <ul>
+    <div>
       {data.allMarkdownRemark.edges.map(({ node }) => (
-        <li key={node.id}>
-          <Link to={node.fields.slug}>
-            {node.frontmatter.title}
-          </Link>
-        </li>
+        <Link to={node.fields.slug} key={node.id}>
+          <article>
+            <div>
+              <img src={node.fields.image.childImageSharp.featured_thumb.src} alt="Featured" />
+            </div>
+            <div>
+              <h3>{node.frontmatter.title}</h3>
+              <p>{node.excerpt}</p>
+              <time>{node.frontmatter.date}</time>
+            </div>
+          </article>
+        </Link>
       ))}
-    </ul>
+    </div>
     {pageContext.previousPage &&
       <Link to={pageContext.previousPage}>Newer Posts</Link>
     }
@@ -44,13 +51,20 @@ export const query = graphql`
           id
           fields {
             slug
+            image {
+              childImageSharp {
+                featured_thumb: resize(width: 400) {
+                  src
+                }
+              }
+            }
           }
           frontmatter {
             title
             date(formatString: "DD MMMM YYYY")
           }
           excerpt(
-            pruneLength: 100
+            pruneLength: 150
             truncate: false
           )
         }

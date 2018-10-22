@@ -3,6 +3,7 @@ module.exports = {
     title: "Risan"
   },
   plugins: [
+    "gatsby-plugin-sharp",
     {
       resolve: "gatsby-plugin-typography",
       options: {
@@ -16,8 +17,7 @@ module.exports = {
         path: "src/pages"
       }
     },
-    {
-      resolve: "gatsby-transformer-remark"
-    }
+    "gatsby-transformer-remark",
+    "gatsby-transformer-sharp"
   ]
 };

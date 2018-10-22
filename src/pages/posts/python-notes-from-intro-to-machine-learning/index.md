@@ -3,11 +3,7 @@ title: Python Notes from Intro to Machine Learning
 date: 2018-04-14 10:00:00
 tags: python
 excerpt: Notes and code snippets of Python that I've been collecting so far throughout the "Intro to Machine Learning" course.
-image_thumb: /img/python-logo-thumb.png
-image:
-  path: /img/python-logo-og.png
-  width: 1200
-  height: 800
+image: "../../images/python-logo.png"
 ---
 I rarely use Python. I only have one repository at Github that is written in Python: [iris-flower-classifier](https://github.com/risan/iris-flower-classifier). And it was written two years ago!
 

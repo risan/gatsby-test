@@ -3,11 +3,7 @@ title: I Create My Own Static Site Generator
 date: 2018-02-11 17:06:00
 tags: thoughts
 excerpt: Instead of writing a blog post more often, I decided to redesign my four months old blog, ditched Jekyll and built a custom static site generator.
-image_thumb: /img/2018-02-11-i-create-my-own-static-site-generator/featured-thumb.jpg
-image:
-  path: /img/2018-02-11-i-create-my-own-static-site-generator/og.jpg
-  width: 1200
-  height: 800
+image: "./featured.jpg"
 ---
 Instead of writing a blog post more often, I decided to redesign my four months old blog, ditched Jekyll and built a custom static site generator. The conversation went like this:
 

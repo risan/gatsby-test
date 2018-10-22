@@ -3,11 +3,7 @@ title: Vue Chart Component with Chart.js
 date: 2018-10-14 18:38:00
 tags: vue
 excerpt: Let's build a reusable and beautiful chart component for Vue.js using the Chart.js library.
-image_thumb: /img/2018-10-14-vue-chart-component-with-chartjs/featured-thumb.png
-image:
-  path: /img/2018-10-14-vue-chart-component-with-chartjs/og.png
-  width: 1200
-  height: 720
+image: "./featured.png"
 ---
 Chart.js is an amazing chart library for JavaScript. It's modern and performant; built on top of the HTML5 canvas. It includes 8 different chart types which super easy to extend and configure. On top of it all, the generated chart just looks beautiful.
 

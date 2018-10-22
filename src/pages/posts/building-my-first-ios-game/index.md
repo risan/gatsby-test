@@ -3,11 +3,7 @@ title: Building My First iOS Game
 date: 2018-10-10 00:10:00
 tags: swift
 excerpt: Things I learned from building my very first iOS game using the latest Swift version 4.2.
-image_thumb: /img/2018-10-10-building-my-first-ios-game/featured-thumb.jpg
-image:
-  path: /img/2018-10-10-building-my-first-ios-game/og.jpg
-  width: 1200
-  height: 715
+image: "./featured.jpg"
 ---
 Sunday night two weeks ago, I had nothing better to do. So I started googling for some iOS tutorial and landed on this amazing [video tutorial](https://www.raywenderlich.com/5993-your-first-ios-app) by Ray Wenderlich. It's quite exciting and easy to follow for a total beginner like me. I delved into Swift documentation before and got bored easily. 😝
 
@@ -449,7 +445,7 @@ In the code above, we declare a class named `ViewController` that inherits from 
 Below is the signature of the `setThumbImage` method from a `UISlider` class:
 
 ```swift
-func setThumbImage(_ image: UIImage?, for state: UIControl.State)
+func setThumbImage(_ image_og: UIImage?, for state: UIControl.State)
 ```
 
 Suppose we have a variable named `slider` which is an instance of the `UISlider` class. We can call the above method like this:

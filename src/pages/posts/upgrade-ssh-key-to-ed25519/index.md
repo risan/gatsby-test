@@ -3,11 +3,7 @@ title: Upgrade Your SSH Key to Ed25519
 date: 2017-11-29 17:06:00
 tags: server
 excerpt: When is the last time you created your SSH key? If you're still using RSA with key-size less than 2048 bits long, It's time for an upgrade!
-image_thumb: /img/2017-11-29-upgrade-ssh-key-to-ed25519/featured-thumb.jpg
-image:
-  path: /img/2017-11-29-upgrade-ssh-key-to-ed25519/og.jpg
-  width: 1200
-  height: 839
+image: "./featured.jpg"
 ---
 If you're a DevOps engineer or a web developer, there's a good chance that you're already familiar and using the SSH key authentication on a daily basis. Whether it's for logging into the remote server or when pushing your commit to the remote repository. It provides us with better security than the traditional password-based authentication.
 

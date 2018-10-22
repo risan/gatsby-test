@@ -12,6 +12,23 @@ exports.onCreateNode = ({ getNode, node, actions }) => {
       name: "slug",
       value: createFilePath({ node, getNode })
     });
+
+    let image = node.frontmatter.image;
+
+    if (! image) {
+      const fileNode = getNode(node.parent);
+
+      image = path.relative(
+        fileNode.dir,
+        "./src/pages/images/default-featured.jpg"
+      );
+    }
+
+    createNodeField({
+      node,
+      name: "image",
+      value: image
+    });
   }
 };
 
