@@ -74,7 +74,7 @@ $ python /foo/bar/__main__.py
 
 Suppose we would like to import a Python module dynamically based on a variable value. We can achieve this through the [`__import__`](https://docs.python.org/2/library/functions.html#__import__) function:
 
-```py
+```python
 module_name = "numpy"
 
 __import__(module_name)
@@ -84,7 +84,7 @@ __import__(module_name)
 
 In Python, it's possible for a function or a method to return multiple values. We can do this simply by separating each return value by a comma:
 
-```py
+```python
 def test():
     return 100, "foo"
 
@@ -105,7 +105,7 @@ In order to import a module from outside of the directory, we need to add that m
 
 If we want to use the `speak_yoda.py` module within the `bar.py`, we can do the following:
 
-```py
+```python
 # /foo/bar.py
 import os
 
@@ -128,7 +128,7 @@ $ python foo/bar.py
 
 To solve this problem we can refer to the `tools` directory using its absolute path.
 
-```py
+```python
 # /foo/bar.py
 import os
 import sys
@@ -149,7 +149,7 @@ import speak_yoda
 
 It turns out you can't just print an emoji or any other Unicode characters to the console. You need to specify the encoding type beforehand:
 
-```py
+```python
 # coding: utf8
 
 print("😅")
@@ -159,7 +159,7 @@ print("😅")
 
 We can use the `pprint` module to pretty-print Python data structure with a configurable indentation:
 
-```py
+```python
 import pprint
 pp = pprint.PrettyPrinter(indent=2)
 
@@ -174,7 +174,7 @@ Read more about pathname manipulations in the [`os.path` documentation](https://
 
 Suppose the last segment of the URL contains a filename that we would like to download. We can extract this filename with the following code:
 
-```py
+```python
 import os
 from urlparse import urlparse
 
@@ -189,7 +189,7 @@ filename = os.path.basename(url_components.path) # foo.txt
 
 To check whether the given file path exists or not:
 
-```py
+```python
 import os
 
 is_exists = os.path.isfile("foo.txt")
@@ -199,7 +199,7 @@ is_exists = os.path.isfile("foo.txt")
 
 To create a directory only if it does not exist:
 
-```py
+```python
 import os
 import errno
 
@@ -216,7 +216,7 @@ except OSError, e:
 
 We can use the `urllib` module to download a file in Python. The first argument is the file URL that we would like to download. The second argument is the optional filename that will be used to store the file.
 
-```py
+```python
 import urllib
 
 urllib.urlretrieve("https://example.com/foo.txt", "foo.txt")
@@ -226,7 +226,7 @@ urllib.urlretrieve("https://example.com/foo.txt", "foo.txt")
 
 There's a built-in `tarfile` module that we can use to work with Tar file in Python. To extract the `tar.gz` file we can use the following code:
 
-```py
+```python
 import tarfile
 
 # Open the file.
@@ -250,7 +250,7 @@ We can pass the `mode` argument to the `open` method. By default, the `mode` wou
 
 Use the `for..in` syntax to generate a list of random numbers in a one-liner style.
 
-```py
+```python
 import random
 
 # Initialize internal state of random generator.
@@ -265,7 +265,7 @@ randomNumbers = [random.random() for i in range(0, 10)]
 
 The built-in `zip` function can pair values from two lists. However, this `zip` function will return a list of tuples instead. To get a list of value pairs, we can combine it with `for..in` syntax:
 
-```py
+```python
 coordinates = [[x, y] for x,y in zip([5,10,15], [0,1,0])]
 # [[5, 0], [10, 1], [15, 0]]
 ```
@@ -276,7 +276,7 @@ We can easily split a list in Python by specifying the starting index and it's e
 
 We can also specify a negative index. And also note that both of these indices are optional!
 
-```py
+```python
 a = [0,1,2,3,4,5]
 
 a[0:3]  # 0,1,2
@@ -292,7 +292,7 @@ a[:]    # 0,1,2,3,4,5
 
 We can easily filter a list in Python by combining the `for..in` and the `if` syntax together:
 
-```py
+```python
 numbers = range(1,11)
 
 # Filter even numbers only.
@@ -304,7 +304,7 @@ numbers = range(1,11)
 
 In Python, we can sort a list in ascending order simply by calling the `sort` method like so:
 
-```py
+```python
 people = ["John", "Alice", "Poe"]
 people.sort()
 print(people) # ["Alice", "John", "Poe"]
@@ -314,7 +314,7 @@ print(people) # ["Alice", "John", "Poe"]
 
 Just like its name, we can use the `filter` function to filter out our list:
 
-```py
+```python
 numbers = range(1, 11)
 
 even_numbers = filter(lambda number: number % 2 == 0, numbers)
@@ -330,7 +330,7 @@ We can break the above statement into two parts:
 
 We can use the `reduce` function to calculate the total of a particular key in a list of a dictionary:
 
-```py
+```python
 items = [{value:10}, {value:20}, {value:50}]
 
 # Calculate the total of value key.
@@ -346,7 +346,7 @@ It can be broken down into 4 parts:
 
 We can also use this `reduce` function to find a single item from the list. Here's an example of code to find the person with the biggest `total_payments` within the given list of `people` dictionary.
 
-```py
+```python
 people = [
     {"name": "John", "total_payments": 100},
     {"name": "Alice", "total_payments": 1000},
@@ -363,14 +363,14 @@ person_biggest_total_payments = reduce(lambda paid_most, person: person if perso
 
 We can use the `itervalues` method to loop through a dictionary:
 
-```py
+```python
 for person in people.itervalues():
     print(person["email_address"])
 ```
 
 We can also use the `iteritems` method if we want to access the key too:
 
-```py
+```python
 for person in people.iteritems():
     print(person[0] + ": " + person[1]["email_address"])
 ```
@@ -379,7 +379,7 @@ for person in people.iteritems():
 
 Suppose we would like to calculate the total amount of `salary` key on a `people` dictionary. We can extract the `salary` key and use the `sum` function to get the total:
 
-```py
+```python
 total_salary = sum([person["salary"] for person in people.itervalues()])
 ```
 
@@ -389,7 +389,7 @@ total_salary = sum([person["salary"] for person in people.itervalues()])
 
 Use the [`arange`](https://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html) method to create an array with an evenly spaced interval.
 
-```py
+```python
 import numpy as np
 
 np.arange(0, 5, 1)
@@ -403,7 +403,7 @@ np.arange(1, 4, 0.5)
 
 We can use the Numpy [`meshgrid`](https://docs.scipy.org/doc/numpy/reference/generated/numpy.meshgrid.html) method to make coordinate matrices from one-dimentional coordinate arrays.
 
-```py
+```python
 import numpy as np
 
 np.meshgrid([1, 2, 3], [0, 7])
@@ -417,7 +417,7 @@ np.meshgrid([1, 2, 3], [0, 7])
 
 When we have a multi-dimensional Numpy array, we can easily flatten it with the [`ravel`](https://docs.scipy.org/doc/numpy/reference/generated/numpy.ravel.html) method:
 
-```py
+```python
 import numpy as np
 
 arr = np.array([[1,2], [3,4]])
@@ -429,7 +429,7 @@ arr.ravel()
 
 We can use Numpy `c_` function to pair array values with another array that will be it's second axis. Read the [`numpy.c_` documentation](https://docs.scipy.org/doc/numpy/reference/generated/numpy.c_.html).
 
-```py
+```python
 import numpy as np
 
 x = [1,2]
@@ -443,7 +443,7 @@ np.c_[x, y]
 
 With the knowledge of Numpy [`arange`](https://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html), [`meshgrid`](https://docs.scipy.org/doc/numpy/reference/generated/numpy.meshgrid.html), [`ravel`](https://docs.scipy.org/doc/numpy/reference/generated/numpy.ravel.html) and [`c_`](https://docs.scipy.org/doc/numpy/reference/generated/numpy.c_.html) methods, we can easily generate an evenly spaced coordinates across the grid so we can pass it to the classifier and plot the decision surface.
 
-```py
+```python
 import numpy as np
 
 # Generate an evenly spaced coordinates.
@@ -459,7 +459,7 @@ test_coordinates = np.c_[x_points.ravel(), y_points.ravel()]
 
 We can pass an evenly spaced coordinates across the grid to the classifier to predict the output on each of that coordinate. We can then use [`matplotlib.pyplot`](https://matplotlib.org/api/pyplot_api.html) to plot the surface decision.
 
-```py
+```python
 import matplotlib.pyplot as plt
 import pylab as pl
 
@@ -483,7 +483,7 @@ The classifier output would be a one-dimensional array, so don't forget to [`res
 
 We need to separate the test points based on its predicted label (the speed). So we can plot the test points with two different colors.
 
-```py
+```python
 # Separate fast (label = 0) & slow (label = 1) test points.
 grade_fast = [features_test[i][0] for i in range(0, len(features_test)) if labels_test[i] == 0]
 bumpy_fast = [features_test[i][1] for i in range(0, len(features_test)) if labels_test[i] == 0]
@@ -507,7 +507,7 @@ plt.show()
 
 If we want to save the plot into an image, we can use the `savefig` method instead:
 
-```py
+```python
 plt.savefig('scatter_plot.png')
 ```
 
@@ -517,7 +517,7 @@ plt.savefig('scatter_plot.png')
 
 We can use [`pickle`](https://docs.python.org/2/library/pickle.html) module for serializing and deserializing Python object. There's also the `cPickle`—the faster C implementation. We use both of these modules to deserialize the email text and author list.
 
-```py
+```python
 import pickle
 import cPickle
 
@@ -536,7 +536,7 @@ authors_file_handler.close()
 
 We can use the built-in [`train_test_split`](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html) function from scikit-learn to split the data both for training and testing.
 
-```py
+```python
 from sklearn.model_selection import train_test_split
 
 features_train, features_test, labels_train, labels_test = train_test_split(texts, authors, test_size = 0.1, random_state = 42)
@@ -548,7 +548,7 @@ The `test_size` argument is the proportion of data to split into the test, in ou
 
 When working with a text document, we need to vectorize the strings into a list of numbers so it's easier and more efficient to process. We can use the [`TfidfVectorizer`](http://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html) class to vectorize the strings into a matrix of TF-IDF features.
 
-```py
+```python
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 vectorizer = TfidfVectorizer(sublinear_tf = True, max_df = 0.5, stop_words = "english")
@@ -562,7 +562,7 @@ Word with a frequency higher than the `max_df` will be ignored. Stop words are a
 
 Text can have a lot of features thus it may slow to compute. We can use scikit [`SelectPercentile`](http://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.SelectPercentile.html) class to select only the important features.
 
-```py
+```python
 selector = SelectPercentile(f_classif, percentile = 10)
 selector.fit(features_train_transformed, labels_train)
 selected_features_train_transformed = selector.transform(features_train_transformed).toarray()
