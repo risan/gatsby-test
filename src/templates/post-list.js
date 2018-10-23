@@ -28,12 +28,12 @@ export default ({ data, pageContext }) => (
 );
 
 export const query = graphql`
-  query($skip: Int!, $limit: Int!) {
+  query($collection: String!, $skip: Int!, $limit: Int!) {
     allMarkdownRemark(
       filter: {
         fields: {
-          slug: {
-            regex: "/^\/posts\//"
+          collection: {
+            eq: $collection
           }
         }
       }
