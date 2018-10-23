@@ -13,7 +13,9 @@ export default ({ data, pageContext }) => (
           path={node.fields.slug}
           image={node.fields.image.childImageSharp.featured_thumb.src}
           title={node.frontmatter.title}
-          excerpt={node.excerpt}
+          excerpt={node.frontmatter.excerpt
+            ? node.frontmatter.excerpt
+            : node.excerpt}
           date={node.frontmatter.date}
           displayDate={node.frontmatter.displayDate}
         />
@@ -65,6 +67,7 @@ export const query = graphql`
             title
             date
             displayDate: date(formatString: "DD MMMM YYYY")
+            excerpt
           }
           excerpt(
             pruneLength: 120
