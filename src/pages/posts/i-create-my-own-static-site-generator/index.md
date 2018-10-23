@@ -17,12 +17,7 @@ I'm easily seduced by the dark side. It's my bad habit. Rather than putting more
 
 You can check the code and the content of this website on my [Github repository](https://github.com/risan/website). It still needs some works to do: add some tests and extracting the generators to its own NPM module.
 
-- [The Tech Stacks](#the-tech-stacks)
-- [Multiple Webpack Configurations](#multiple-webpack-configurations)
-- [Using chokidar as a Watcher](#using-chokidar-as-a-watcher)
-- [Combining ESLint and Prettier](#combining-eslint-and-prettier)
-- [Built-in promisify Function in Node.js](#built-in-promisify-function-in-nodejs)
-- [Immediately Activate The Service Workers](#immediately-activate-the-service-workers)
+## Table of Contents
 
 ## The Tech Stacks
 

@@ -13,38 +13,13 @@ You can check out the complete project on my Github repository: [risan/bullseye-
 
 ![Bull's Eye game in action](https://media.giphy.com/media/8TzojHt7pxqv8GhXnW/giphy.gif)
 
-## Things I Learned
-
 Here are a few things that I learned and gathered so far about Swift programming language. Note that I use the latest Swift 4.2 version.
 
-* [Variables, Constants, and Data Types](#variables-constants-and-data-types)
-    * [Basic Data Types](#basic-data-types)
-    * [Working with Integer](#working-with-integer)
-    * [Working with Decimal](#working-with-decimal)
-    * [Declaring a Variable](#declaring-a-variable)
-    * [Declaring a Constant](#declaring-a-constant)
-    * [Type Inference](#type-inference)
-    * [String Extrapolation](#string-extrapolation)
-* [Functions](#functions)
-    * [Function with Parameter](#function-with-parameter)
-    * [Omitting Argument Label in a Function](#omitting-argument-label-in-a-function)
-    * [Renaming the Function Parameter](#renaming-the-function-parameter)
-    * [Function with Return Value](#function-with-return-value)
-* [Optional](#optional)
-    * [Optional Binding](#optional-binding)
-    * [Class Initializer](#class-initializer)
-* [Class](#class)
-    * [Class Initializer](#class-initializer)
-* [Other Discoveries](#other-discoveries)
-    * [Force Unwrapping](#force-unwrapping)
-    * [Class Inheritance](#class-inheritance)
-    * [Known Type Parameter](#known-type-parameter)
-    * [Using a Closure](#using-a-closure)
-    * [Displaying Local HTML File on a WebView](#displaying-local-html-file-on-a-webview)
+## Table of Contents
 
-### Variables, Constants, and Data Types
+## Variables, Constants, and Data Types
 
-#### Basic Data Types
+### Basic Data Types
 
 There are several basic data types provided by Swift, here are some of the types that I've used so far:
 
@@ -55,7 +30,7 @@ There are several basic data types provided by Swift, here are some of the types
 * `Character`: For a single character (e.g. `A`, `b`, or `&`); and
 * `String`: Collection of a character (e.g. `Hello World`).
 
-##### Working with Integer
+#### Working with Integer
 
 Swift also provides several other data types for handling an integer number:
 
@@ -77,7 +52,7 @@ There are also several other data types for handling a decimal number:
 
 However, the Swift documentation recommends us to always use the `Double` data type when dealing with a decimal number.
 
-#### Declaring a Variable
+### Declaring a Variable
 
 Use the `var` keyword to declare a variable:
 
@@ -103,7 +78,7 @@ name = 12
 name = String(12)
 ```
 
-#### Declaring a Constant
+### Declaring a Constant
 
 To declare a constant, we use the `let` keyword:
 
@@ -115,7 +90,7 @@ let pi: Double = 3.14
 pi = 3.1423
 ```
 
-#### Type Inference
+### Type Inference
 
 Swift is a strongly typed language. However, it allows us to declare a variable or a constant without even specifying its data type. Swift is smart enough to figure out the data type based on its initial value.
 
@@ -129,7 +104,7 @@ let grade = "A" // String
 
 Note that by default, a decimal number will be inferred as a `Double`—not a `Float`. A round number also will be inferred as an `Int`, even if the value may also fit in another data type like `UInt8`.
 
-#### String Extrapolation
+### String Extrapolation
 
 In Swift, we can put the value of a variable or a constant within a string like this:
 
@@ -169,7 +144,7 @@ Message: \(message)
 """)
 ```
 
-### Functions
+## Functions
 
 Use the `func` keyword to create a function:
 
@@ -182,7 +157,7 @@ func sayHello() {
 sayHello()
 ```
 
-#### Function with Parameter
+### Function with Parameter
 
 We can also create a function with a parameter:
 
@@ -215,7 +190,7 @@ introduce(age: 19, name: "Luke")
 
 Note that even though the arguments are already labeled, we can't change the order of these arguments.
 
-#### Omitting Argument Label in a Function
+### Omitting Argument Label in a Function
 
 We can configure the function so we don't have to specify the argument label when calling it. To omit the argument label, simply put an underscore (`_`) before the parameter name:
 
@@ -250,7 +225,7 @@ func introduce(_ name: String, _ age: Int) {
 introduce("Jar Jar", 33) // Hi my name is Jar Jar and I'm 33 years old.
 ```
 
-#### Renaming the Function Parameter
+### Renaming the Function Parameter
 
 In Swift, we are allowed to have a different identifier between the parameter name and the argument label.
 
@@ -264,7 +239,7 @@ welcome(to: "Jungle") // Welcome to the Jungle!
 
 The `to` will be used as an argument label when calling the `welcome` function. While the `name` will be used as an identifier for the parameter within the function's body.
 
-#### Function with Return Value
+### Function with Return Value
 
 So far we've only created functions with no return value. To create a function with a return value, simply use the `return` keyword and declare the return type right before the opening curly brace:
 
@@ -277,7 +252,7 @@ sum(10, 20) // 30
 sum(10, -20) // -10
 ```
 
-### Optional
+## Optional
 
 "Optional" was one of the concepts that I was struggling with when trying out Swift for the first time years ago. Now I finally understand. It's simply a data type that accepts `nil` as a value—which means an absence of value. We use a question mark (`?`) to indicate an optional type:
 
@@ -292,7 +267,7 @@ name = nil // or we can also assign a `nil`
 message = nil
 ```
 
-#### Optional Binding
+### Optional Binding
 
 We can think of optional type as a box. It can either contain something (some value) or nothing at all (a `nil` value). In order to know what's inside of this box, we have to open it. In Swift, this process is called "unwrapping"—like unwrapping present box!
 
@@ -310,7 +285,7 @@ if let unwrappedName = name {
 }
 ```
 
-### Class
+## Class
 
 Use the `class` keyword to define a class:
 
@@ -339,7 +314,7 @@ john.isHuman = false
 
 Just like calling a function, we use `Person()` to initialize a new object of `Person` class. We can then use the dot (`.`) to access the object's properties and methods.
 
-#### Class Initializer
+### Class Initializer
 
 The class can also have an initializer or a constructor. This is a good place for us to set up the class's instance; like assigning some initial values to the properties:
 
@@ -410,7 +385,7 @@ anakin.sayHi() // Hi, my name is Anakin and I'm 20 years old
 luke.sayHi() // Hi, my name is Luke
 ```
 
-### Other Discoveries
+## Other Discoveries
 
 Here are some other discoveries I've made throughout the tutorial:
 
@@ -419,7 +394,7 @@ Here are some other discoveries I've made throughout the tutorial:
 * Use the `@IBOutlet` keyword on the class's property if we want it to refer to some object on the storyboard.
 * Use the `@IBAction` keyword on the class's method if want it to be executed when a particular event occurred on some object on the storyboard.
 
-#### Force Unwrapping
+### Force Unwrapping
 
 ```swift
 @IBOutlet weak var slider: UISlider!
@@ -427,7 +402,7 @@ Here are some other discoveries I've made throughout the tutorial:
 
 The exclamation mark (`!`) at the end of the above code is used for unwrapping the optional type forcefully. It means that if the `slider` is `nil` the code execution will be aborted.
 
-#### Class Inheritance
+### Class Inheritance
 
 ```swift
 class ViewController: UIViewController {
@@ -440,7 +415,7 @@ class ViewController: UIViewController {
 
 In the code above, we declare a class named `ViewController` that inherits from the `UIViewController` class. In Swift, we are allowed to override the parent's method. To do so, we have to use the `override` keyword before the new method declaration. We can also use the `super` keyword to access parent's original methods or properties.
 
-#### Known Type Parameter
+### Known Type Parameter
 
 Below is the signature of the `setThumbImage` method from a `UISlider` class:
 
@@ -460,7 +435,7 @@ slider.setThumbImage(someUIImageInstance, for: UIControl.State.normal)
 slider.setThumbImage(someUIImageInstance, for: .normal)
 ```
 
-#### Using a Closure
+### Using a Closure
 
 ```swift
 UIAlertAction(title: "OK", style: .default, handler: {
@@ -471,7 +446,7 @@ UIAlertAction(title: "OK", style: .default, handler: {
 
 The code above is taken from the tutorial's source code. We declare a closure as an argument for the `handler` parameter. The `in` keyword is used to separate the closure's parameter(s) from the body. In the code above we only have one parameter: `action`—which is an instance of the newly created `UIAlertAction` class.
 
-#### Displaying Local HTML File on a WebView
+### Displaying Local HTML File on a WebView
 
 Here's the code that we use to display a locally saved HTML file within the WebKit WebView:
 
@@ -486,25 +461,25 @@ if let htmlPath = Bundle.main.path(forResource: "about", ofType: "html") {
 
 Note that the `webView` identifier above refers to the `WKWebView` object on the storyboard.
 
-### Closing Thought
+## Closing Thought
 
 I must say, so far I enjoy creating an iOS application using Swift. Swift syntax is cleaner and more concise than its predecessor—Objective C. For me it's also a lot easier to understand.
 
 This little quest of mine, leading me to find more tutorials about building iOS development with Swift. So far I've done another 4 tutorials:
 
-##### [1. Auto layout practice](https://github.com/risan/autolayout-ios)
+[1. Auto layout practice](https://github.com/risan/autolayout-ios)
 
 ![Auto Layout Practice](auto-layout.jpg)
 
-##### [2. Stack Views practice](https://github.com/risan/stack-views-ios)
+[2. Stack Views practice](https://github.com/risan/stack-views-ios)
 
 ![Stack Views Practice](stack-views.jpg)
 
-##### [3. Creating a paginated sliding cards](https://github.com/risan/sliding-cards-ios)
+[3. Creating a paginated sliding cards](https://github.com/risan/sliding-cards-ios)
 
 ![Sliding Cards in Action](https://media.giphy.com/media/EQBBtahcZ36yS4ATKz/giphy.gif)
 
-##### [4. A War Card Game](https://github.com/risan/war-card-game-ios)
+[4. A War Card Game](https://github.com/risan/war-card-game-ios)
 
 ![War Card Game in Action](https://media.giphy.com/media/3oqoBNGeV4PEbCcQcP/giphy.gif)
 

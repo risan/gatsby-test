@@ -12,6 +12,8 @@ Having a blog will be a good exercise to improve my writing skill. It's also a g
 
 ![New Blog and Things I learned Building It](featured.jpg)
 
+## Table of Contents
+
 ## The Tech Stacks
 
 I use [Jekyll](https://jekyllrb.com) to generate this static blog. I've designed it to be minimal and uncluttered. Making an emphasize on the content. I also try keeping the CSS and the JS file sizes as lean as possible. There's even no third party library, except for the slim down version of [Normalize.css](https://necolas.github.io/normalize.css) from [Bootstrap](https://github.com/twbs/bootstrap/blob/v4-dev/scss/_reboot.scss) framework.
@@ -23,13 +25,6 @@ Although there's a Sprockets based [Jekyll plugin](https://jekyll.github.io/jeky
 ## New Things I Learned
 
 There are also several new things I've learned when building up this new blog:
-
-- [Collapsible Sidebar with Pure CSS](#collapsible-sidebar-with-pure-css)
-- [Nginx Header Is Overridden on a More Specific Block](#nginx-header-is-overridden-on-a-more-specific-block)
-- [IP Tables Persistence Service is not Working on Ubuntu Xenial](#ip-tables-persistence-service-is-not-working-on-ubuntu-xenial)
-- [Generating Tag Archive Page in Jekyll](#generating-tag-archive-page-in-jekyll)
-- [Code Highlighting for PHP Won't Work Without Opening Tag](#code-highlighting-for-php-wont-work-without-opening-tag)
-- [Line Numbers for Code Snippets with GFM Syntax](#line-numbers-for-code-snippets-with-gfm-syntax)
 
 ### Collapsible Sidebar with Pure CSS
 
@@ -161,7 +156,7 @@ server {
 
 Or you can install the [headers-more](https://github.com/openresty/headers-more-nginx-module) module and use the provided [`more_set_headers`](https://github.com/openresty/headers-more-nginx-module#more_set_headers) directive.
 
-## IP Tables Persistence Service is not Working on Ubuntu Xenial
+### IP Tables Persistence Service is not Working on Ubuntu Xenial
 
 I'm using the latest LTS version of Ubuntu to host this website: 16.04 Xenial Xerus. When I tried to start the `iptables-persistent` service to persist my IP tables configuration between reboot, I got an error:
 

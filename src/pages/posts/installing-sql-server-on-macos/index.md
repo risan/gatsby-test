@@ -11,6 +11,8 @@ But now it's no longer the case. October last year, SQL Server 2017 for Linux fi
 
 ![Good news, everyone!](https://media.giphy.com/media/l3mZdg0qPkLkaW6IM/giphy.gif)
 
+## Table of Contents
+
 ## Installing Docker
 
 First, you're going to need Docker. If you haven't had it installed, heads up to the [Docker store](https://store.docker.com) website and download the [community edition for Mac](https://store.docker.com/editions/community/docker-ce-desktop-mac). Just follow the instructions, it's super easy to install.
