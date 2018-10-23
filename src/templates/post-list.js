@@ -15,6 +15,7 @@ export default ({ data, pageContext }) => (
           title={node.frontmatter.title}
           excerpt={node.excerpt}
           date={node.frontmatter.date}
+          displayDate={node.frontmatter.displayDate}
         />
       ))}
     </div>
@@ -62,7 +63,8 @@ export const query = graphql`
           }
           frontmatter {
             title
-            date(formatString: "DD MMMM YYYY")
+            date
+            displayDate: date(formatString: "DD MMMM YYYY")
           }
           excerpt(
             pruneLength: 120
