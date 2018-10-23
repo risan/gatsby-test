@@ -1,7 +1,20 @@
 module.exports = {
   siteMetadata: {
     headerTitle: "Risan Bagja",
-    headerDescription: "A journal of a passionate coder"
+    headerDescription: "A journal of a passionate coder",
+    defaultFeaturedImage: "./content/images/default-featured.jpg",
+    defaultMarkdownTemplate: "src/templates/post.js",
+    markdownCollection: {
+      template: "src/templates/post.js",
+      listTemplate: "src/templates/post-list.js",
+      perPage: 10,
+      collections: {
+        posts: {
+          path: "posts",
+          perPage: 5
+        }
+      }
+    }
   },
   plugins: [
     "gatsby-plugin-sharp",

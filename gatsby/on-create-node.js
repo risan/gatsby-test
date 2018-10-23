@@ -1,7 +1,7 @@
 const path = require("path");
 const { createFilePath } = require("gatsby-source-filesystem");
-const config = require("../config");
-const { getCollectionName } = require("./collections");
+const config = require("../gatsby-config").siteMetadata;
+const getCollectionName = require("./get-markdown-collection-name");
 
 const isMarkdown = node => node.internal.type === "MarkdownRemark";
 
@@ -11,15 +11,13 @@ module.exports = ({ getNode, node, actions }) => {
   }
 
   const { createNodeField } = actions;
-  const slug = createFilePath({ node, getNode });
+  const fileNode = getNode(node.parent);
 
   createNodeField({
     node,
     name: "slug",
-    value: slug
+    value: createFilePath({ node, getNode })
   });
-
-  const fileNode = getNode(node.parent);
 
   createNodeField({
     node,
@@ -32,6 +30,6 @@ module.exports = ({ getNode, node, actions }) => {
   createNodeField({
     node,
     name: "collection",
-    value: getCollectionName(slug)
+    value: getCollectionName(fileNode.relativePath)
   });
 };
