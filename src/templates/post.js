@@ -1,33 +1,43 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import styles from "./post.module.css";
 
-export default ({ data }) => {
-  let html = data.markdownRemark.html;
+const TOC_SELF_LINK_PATTERN = /(<li>\s?<a href="[\S]*#table-of-contents">\s?Table of Contents\s?<\/a>\s?<\/li>)/mi
+const TOC_HEADING_PATTERN = /(>\s?Table of Contents\s?<\/h2>)/mi
 
-  if (data.markdownRemark.tableOfContents) {
+export default ({ data }) => {
+  const { fields, frontmatter, tableOfContents } = data.markdownRemark;
+  let { html } = data.markdownRemark;
+
+  if (tableOfContents) {
     // Remove the "Table of Contents" link from the generated TOC list.
-    const TOC_SELF_LINK_PATTERN = /(<li>\s?<a href="[\S]*#table-of-contents">\s?Table of Contents\s?<\/a>\s?<\/li>)/mi
-    const tocHtml = data.markdownRemark.tableOfContents.replace(
-      TOC_SELF_LINK_PATTERN, ''
-    );
+    const tocHtml = tableOfContents.replace(TOC_SELF_LINK_PATTERN, '');
 
     // Insert the TOC right after the TOC H2 heading.
-    const TOC_HEADING_PATTERN = /(>\s?Table of Contents\s?<\/h2>)/mi
     html = html.replace(TOC_HEADING_PATTERN, `$1${tocHtml}`);
   }
 
   return (
     <Layout>
       <article>
-        <h1>{data.markdownRemark.frontmatter.title}</h1>
+        <h1>{frontmatter.title}</h1>
 
         <p className={styles.date}>
-          <span>Published on</span>{" "}
-          <time dateTime={data.markdownRemark.frontmatter.date} pubdate="true">
-            {data.markdownRemark.frontmatter.displayDate}
-          </time>
+          <span>By {fields.author}</span>
+          {" "}&middot;{" "}
+          {frontmatter.updatedDate ? (
+            <Fragment>
+              <span>Updated on</span>{" "}
+              <time dateTime={frontmatter.updatedDate} pubdate="true">
+                {frontmatter.updatedDatePretty}
+              </time>
+            </Fragment>
+          ) : (
+            <time dateTime={frontmatter.publishDate} pubdate="true">
+              {frontmatter.publishDatePretty}
+            </time>
+          )}
         </p>
 
         <div dangerouslySetInnerHTML={{ __html: html }} />
@@ -43,10 +53,15 @@ export const query = graphql`
         eq: $slug
       }
     }) {
+      fields {
+        author
+      }
       frontmatter {
         title
-        date
-        displayDate: date(formatString: "DD MMMM YYYY")
+        publishDate: date
+        publishDatePretty: date(formatString: "DD MMMM YYYY")
+        updatedDate: updated_at
+        updatedDatePretty: updated_at(formatString: "DD MMMM YYYY")
       }
       tableOfContents(pathToSlugField: "fields.slug")
       html

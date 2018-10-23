@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     headerTitle: "Risan Bagja",
     headerDescription: "A journal of a passionate coder",
+    author: "Risan Bagja",
     defaultFeaturedImage: "./content/images/default-featured.jpg",
     defaultMarkdownTemplate: "src/templates/post.js",
     markdownCollection: {
