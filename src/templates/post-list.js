@@ -6,12 +6,15 @@ import Pagination from "../components/pagination";
 
 export default ({ data, pageContext }) => (
   <Layout>
+    <h2>All Posts</h2>
     <div>
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <PostLink
           key={node.id}
           path={node.fields.slug}
-          image={node.fields.image.childImageSharp.featured_thumb.src}
+          image={node.frontmatter.image
+            ? node.frontmatter.image.childImageSharp.featuredThumb.src
+            : data.file.childImageSharp.featuredThumb.src}
           title={node.frontmatter.title}
           excerpt={node.frontmatter.excerpt
             ? node.frontmatter.excerpt
@@ -30,7 +33,14 @@ export default ({ data, pageContext }) => (
 );
 
 export const query = graphql`
-  query($collection: String!, $skip: Int!, $limit: Int!) {
+  query(
+    $collection: String!
+    $skip: Int!
+    $limit: Int!
+    $configDefaultImage: String!
+    $configThumbWidth: Int!
+    $configThumbHeight: Int!
+  ) {
     allMarkdownRemark(
       filter: {
         fields: {
@@ -51,11 +61,17 @@ export const query = graphql`
           id
           fields {
             slug
+          }
+          frontmatter {
+            title
+            date
+            displayDate: date(formatString: "DD MMMM YYYY")
+            excerpt,
             image {
               childImageSharp {
-                featured_thumb: resize(
-                  width: 400
-                  height: 250
+                featuredThumb: resize(
+                  width: $configThumbWidth
+                  height: $configThumbHeight
                   cropFocus: CENTER
                 ) {
                   src
@@ -63,16 +79,23 @@ export const query = graphql`
               }
             }
           }
-          frontmatter {
-            title
-            date
-            displayDate: date(formatString: "DD MMMM YYYY")
-            excerpt
-          }
           excerpt(
             pruneLength: 120
             truncate: false
           )
+        }
+      }
+    }
+    file(relativePath: {
+      eq: $configDefaultImage
+    }) {
+      childImageSharp {
+        featuredThumb: resize(
+          width: $configThumbWidth
+          height: $configThumbHeight
+          cropFocus: CENTER
+        ) {
+          src
         }
       }
     }

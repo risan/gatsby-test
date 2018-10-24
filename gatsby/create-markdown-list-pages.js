@@ -1,9 +1,10 @@
 const _ = require("lodash");
 const {
-  getPerPage,
+  getConfig,
   getPagePath,
-  getTemplate
-} = require("./markdown-list-helpers");
+  mapConfigForContext
+} = require("./collection-config");
+const resolveTemplate = require("./resolve-template");
 
 /**
  * Create markdown collection list pages.
@@ -14,15 +15,19 @@ const {
  */
 module.exports = (collectionCount, createPage) => {
   _.forIn(collectionCount, (total, collection) => {
-    const perPage = getPerPage(collection);
+    const { perPage, listTemplate } = getConfig(collection);
+    const configContext = mapConfigForContext(collection);
+
     const totalPages = Math.ceil(total / perPage);
+    const component = resolveTemplate(listTemplate);
 
     _.range(1, totalPages + 1).forEach(page => {
       createPage({
         path: getPagePath(collection, page),
-        component: getTemplate(collection),
+        component,
         context: {
           collection: collection,
+          ...configContext,
           limit: perPage,
           skip: (page - 1) * perPage,
           previousPage: page === 1

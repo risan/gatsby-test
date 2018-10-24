@@ -1,14 +1,12 @@
-const path = require("path");
 const _ = require("lodash");
 const config = require("../gatsby-config").siteMetadata;
+const { getTemplate } = require("./collection-config");
+
+const LEADING_SLASH = /^\//;
 
 const defaultTemplate = config.hasOwnProperty("defaultMarkdownTemplate")
-  ? path.resolve(config.defaultMarkdownTemplate)
+  ? config.defaultMarkdownTemplate.replace(LEADING_SLASH, '')
   : null;
-
-const defaultCollectionTemplate = _.has(config, "markdownCollection.template")
-  ? path.resolve(config.markdownCollection.template)
-  : defaultTemplate;
 
 /**
  * Get page template.
@@ -17,15 +15,13 @@ const defaultCollectionTemplate = _.has(config, "markdownCollection.template")
  * @return {String}
  */
 module.exports = collection => {
+  if (collection) {
+    return getTemplate(collection);
+  }
+
   if (null === defaultTemplate) {
     throw new Error("The [siteMetadata.defaultMarkdownTemplate] property is missing.")
   }
 
-  if (!collection) {
-    return defaultTemplate;
-  }
-
-  return _.has(config, `markdownCollection.collections.${collection}.template`)
-    ? path.resolve(config.markdownCollection.collections[collection].template)
-    : defaultCollectionTemplate;
+  return defaultTemplate;
 };

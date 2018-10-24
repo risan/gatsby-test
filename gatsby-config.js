@@ -5,18 +5,24 @@ module.exports = {
     headerTitle: "Risan Bagja",
     headerDescription: "A journal of a passionate coder",
     author: "Risan Bagja",
-    defaultFeaturedImage: "./content/images/default-featured.jpg",
-    defaultMarkdownTemplate: "src/templates/post.js",
+    defaultImage: "images/default-featured.jpg",
+    defaultMarkdownTemplate: "post.js",
     twitter: "@risanbagja",
     publisherLogo: "https://avatars2.githubusercontent.com/u/3825242",
     markdownCollection: {
-      template: "src/templates/post.js",
-      listTemplate: "src/templates/post-list.js",
+      template: "post.js",
+      listTemplate: "post-list.js",
       perPage: 10,
       collections: {
         posts: {
           path: "posts",
-          perPage: 5
+          defaultImage: "images/default-featured.jpg",
+          thumbWidth: 400,
+          thumbHeight: 250
+        },
+        logs: {
+          path: "logs",
+          listTemplate: "log-list.js"
         }
       }
     }

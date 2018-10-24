@@ -12,6 +12,7 @@ module.exports = async ({ graphql, actions }) => {
             fields {
               slug
               collection
+              template
             }
           }
         }
