@@ -21,12 +21,6 @@ module.exports = ({ getNode, node, actions }) => {
 
   createNodeField({
     node,
-    name: "author",
-    value: node.frontmatter.author ? node.frontmatter.author : config.author
-  });
-
-  createNodeField({
-    node,
     name: "image",
     value: node.frontmatter.image
       ? node.frontmatter.image

@@ -1,10 +1,14 @@
 module.exports = {
   siteMetadata: {
+    url: "https://risanbagja.com",
+    title: "Risan Bagja's Blog",
     headerTitle: "Risan Bagja",
     headerDescription: "A journal of a passionate coder",
     author: "Risan Bagja",
     defaultFeaturedImage: "./content/images/default-featured.jpg",
     defaultMarkdownTemplate: "src/templates/post.js",
+    twitter: "@risanbagja",
+    publisherLogo: "https://avatars2.githubusercontent.com/u/3825242",
     markdownCollection: {
       template: "src/templates/post.js",
       listTemplate: "src/templates/post-list.js",
@@ -18,6 +22,7 @@ module.exports = {
     }
   },
   plugins: [
+    "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
     {
       resolve: "gatsby-plugin-typography",
