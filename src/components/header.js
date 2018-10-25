@@ -19,13 +19,13 @@ export default () => (
       <header className={styles.header}>
         <Container>
           <Link to="/">
-            <h1 className={styles.title}>
+            <p className={styles.title}>
               {data.site.siteMetadata.headerTitle}
-            </h1>
+            </p>
           </Link>
-          <h2 className={styles.description}>
+          <p className={styles.description}>
             {data.site.siteMetadata.headerDescription}
-          </h2>
+          </p>
         </Container>
       </header>
     )}

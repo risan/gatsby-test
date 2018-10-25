@@ -1,8 +1,9 @@
 ---
-title: About Me
+title: About Risan Bagja
 excerpt: Hi, my name is Risan and I code for fun! Seriously.
 date: 2017-10-09 17:06:00
 lastUpdate: 2018-10-24 19:19:00
+concatenateSiteTitle: false
 ---
 Hi, my name is Risan and I code for fun! Seriously.
 

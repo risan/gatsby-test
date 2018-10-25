@@ -9,13 +9,14 @@ export default ({ data, pageContext, ...rest }) => console.log({ pageContext, re
   <Layout>
     <Seo
       path={pageContext.slug}
-      title={`Posts Page ${pageContext.page}`}
-      concatenateSiteTitleString="-"
-      prependSiteTitle={false}
+      title="Programming Articles"
       useStructuredData={false}
     />
 
-    <h2>All Posts</h2>
+    <h1 style={{fontSize: "1.5rem", marginBottom: "1rem"}}>
+      Programming Articles
+    </h1>
+
     <div>
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <PostLink

@@ -29,6 +29,7 @@ export default ({ data, pageContext }) => {
         image={fields.image.childImageSharp.openGraph}
         datePublished={frontmatter.date}
         dateModified={frontmatter.lastUpdate}
+        concatenateSiteTitle={frontmatter.concatenateSiteTitle !== false}
       />
 
       <article>
@@ -83,6 +84,7 @@ export const query = graphql`
       }
       frontmatter {
         title
+        concatenateSiteTitle
         date
         datePretty: date(formatString: "DD MMMM YYYY")
         lastUpdate

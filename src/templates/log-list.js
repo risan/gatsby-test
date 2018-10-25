@@ -2,10 +2,20 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
 import Pagination from "../components/pagination";
+import Seo from "../components/seo";
 
 export default ({ data, pageContext }) => (
   <Layout>
-    <h2>Logs</h2>
+    <Seo
+      path={pageContext.slug}
+      title="Programming Logs"
+      useStructuredData={false}
+    />
+
+    <h1 style={{fontSize: "1.5rem", marginBottom: "1rem"}}>
+      Programming Logs
+    </h1>
+
     <ul>
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <li key={node.id}>
