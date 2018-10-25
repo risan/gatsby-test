@@ -7,7 +7,10 @@ export default () => (
     <Container>
       <p>
         Except where otherwise noted, content on this blog is licensed under a
-        Creative Commons Attribution 4.0 International License.
+        {" "}
+        <a href="https://creativecommons.org/licenses/by/4.0/">
+          Creative Commons Attribution 4.0 International License
+        </a>.
       </p>
     </Container>
   </footer>

@@ -14,7 +14,7 @@ export default () => (
           <Link to="/posts/">Posts</Link>
         </li>
         <li>
-          <Link to="/logs/">Logs</Link>
+          <Link to="/tips/">Tips</Link>
         </li>
         <li>
           <Link to="/about/">About</Link>

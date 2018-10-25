@@ -11,15 +11,16 @@ module.exports = {
     markdownTemplate: "post.js",
     markdownImage: "content/images/default-featured.jpg",
     markdownCollection: {
-      listTemplate: "post-list.js",
+      listTemplate: "collection-list.js",
       perPage: 10,
       collections: {
         posts: {
-          path: "posts"
+          path: "posts",
+          listTemplate: "post-list.js",
         },
-        logs: {
-          path: "logs",
-          listTemplate: "log-list.js"
+        tips: {
+          path: "tips",
+          title: "Programming Tips and Notes"
         }
       }
     },

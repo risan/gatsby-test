@@ -4,17 +4,18 @@ import Layout from "../components/layout";
 import PostLink from "../components/post-link";
 import Pagination from "../components/pagination";
 import Seo from "../components/seo";
+import styles from "./collection-list.module.css";
 
 export default ({ data, pageContext, ...rest }) => console.log({ pageContext, rest }) || (
   <Layout>
     <Seo
       path={pageContext.slug}
-      title="Programming Articles"
+      title="Programming Articles and Tutorials"
       useStructuredData={false}
     />
 
-    <h1 style={{fontSize: "1.5rem", marginBottom: "1rem"}}>
-      Programming Articles
+    <h1 className={styles.title}>
+      Programming Articles and Tutorials
     </h1>
 
     <div>

@@ -3,27 +3,27 @@ import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
 import Pagination from "../components/pagination";
 import Seo from "../components/seo";
+import styles from "./collection-list.module.css";
 
 export default ({ data, pageContext }) => (
   <Layout>
     <Seo
       path={pageContext.slug}
-      title="Programming Logs"
+      title={pageContext.configTitle}
       useStructuredData={false}
     />
 
-    <h1 style={{fontSize: "1.5rem", marginBottom: "1rem"}}>
-      Programming Logs
-    </h1>
+    <h1 className={styles.title}>{pageContext.configTitle}</h1>
 
-    <ul>
+    <ul className={styles.list}>
       {data.allMarkdownRemark.edges.map(({ node }) => (
-        <li key={node.id}>
-          <Link to={node.fields.slug}>
-            <span>{node.frontmatter.datePretty}</span>
-            {" - "}
-            <span>{node.frontmatter.title}</span>
+        <li key={node.id} className={styles.item}>
+          <Link to={node.fields.slug} className={styles.link}>
+            {node.frontmatter.title}
           </Link>
+          <span className={styles.date}>
+            {node.frontmatter.datePretty}
+          </span>
         </li>
       ))}
     </ul>
