@@ -2,7 +2,8 @@ const path = require("path");
 const { createFilePath } = require("gatsby-source-filesystem");
 const config = require("../gatsby-config").siteMetadata;
 const getCollectionName = require("./get-markdown-collection-name");
-const getTemplate = require("./get-template");
+const { getTemplate, getImage } = require("./markdown-config");
+const resolveTemplate = require("./resolve-template");
 
 const isMarkdown = node => node.internal.type === "MarkdownRemark";
 
@@ -34,7 +35,15 @@ module.exports = ({ getNode, node, actions }) => {
     node,
     name: "template",
     value: node.frontmatter.template
-      ? node.frontmatter.template
+      ? resolveTemplate(node.frontmatter.template)
       : getTemplate(collection)
+  });
+
+  createNodeField({
+    node,
+    name: "image",
+    value: node.frontmatter.image
+      ? node.frontmatter.image
+      : path.relative(fileNode.dir, getImage(collection))
   });
 };

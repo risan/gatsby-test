@@ -8,7 +8,7 @@ const TOC_SELF_LINK_PATTERN = /(<li>\s?<a href="[\S]*#table-of-contents">\s?Tabl
 const TOC_HEADING_PATTERN = /(>\s?Table of Contents\s?<\/h2>)/mi
 
 export default ({ data, pageContext }) => {
-  const { frontmatter, ...post} = data.markdownRemark;
+  const { frontmatter, fields, ...post} = data.markdownRemark;
   const site = data.site.siteMetadata;
   let { html } = post;
 
@@ -20,23 +20,15 @@ export default ({ data, pageContext }) => {
     html = html.replace(TOC_HEADING_PATTERN, `$1${tocHtml}`);
   }
 
-  let image = null;
-
-  if (frontmatter.image) {
-    image = frontmatter.image.relativePath;
-  } else if (pageContext.hasOwnProperty("defaultImage")) {
-    image = pageContext.defaultImage;
-  } else {
-    image = site.defaultImage;
-  }
-
   return (
     <Layout>
       <Seo
-        path={post.fields.slug}
+        path={fields.slug}
         title={frontmatter.title}
         description={frontmatter.excerpt ? frontmatter.excerpt : post.excerpt}
-        imagePath={image}
+        image={fields.image.childImageSharp.openGraph}
+        datePublished={frontmatter.date}
+        dateModified={frontmatter.lastUpdate}
       />
 
       <article>
@@ -70,16 +62,24 @@ export const query = graphql`
     site {
       siteMetadata {
         author
-        defaultImage
       }
     }
-    markdownRemark(fields: {
-      slug: {
-        eq: $slug
-      }
-    }) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       fields {
         slug
+        image {
+          childImageSharp {
+            openGraph: resize(
+              width: 1200
+              height: 640
+              cropFocus: CENTER
+            ) {
+              src
+              width
+              height
+            }
+          }
+        }
       }
       frontmatter {
         title
@@ -88,9 +88,6 @@ export const query = graphql`
         lastUpdate
         lastUpdatePretty: lastUpdate(formatString: "DD MMMM YYYY")
         excerpt
-        image {
-          relativePath
-        }
       }
       tableOfContents(pathToSlugField: "fields.slug")
       html

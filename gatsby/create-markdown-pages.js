@@ -1,5 +1,4 @@
-const resolveTemplate = require("./resolve-template");
-const { mapConfigForContext } = require("./collection-config");
+const { mapConfigForContext } = require("./markdown-collection-config");
 
 /**
  * Create pages from markdown files.
@@ -14,7 +13,7 @@ module.exports = (edges, createPage) => edges.reduce((collectionCount, { node })
 
   createPage({
     path: node.fields.slug,
-    component: resolveTemplate(node.fields.template),
+    component: node.fields.template,
     context: {
       collection,
       ...collectionConfig,

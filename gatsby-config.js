@@ -1,30 +1,35 @@
 module.exports = {
   siteMetadata: {
     url: "https://risanbagja.com",
+    lang: "en",
     title: "Risan Bagja's Blog",
     headerTitle: "Risan Bagja",
     headerDescription: "A journal of a passionate coder",
     author: "Risan Bagja",
-    defaultImage: "images/default-featured.jpg",
-    defaultMarkdownTemplate: "post.js",
-    twitter: "@risanbagja",
-    publisherLogo: "https://avatars2.githubusercontent.com/u/3825242",
+
+    markdownTemplate: "post.js",
+    markdownImage: "content/images/default-featured.jpg",
     markdownCollection: {
-      template: "post.js",
       listTemplate: "post-list.js",
       perPage: 10,
       collections: {
         posts: {
-          path: "posts",
-          defaultImage: "images/default-featured.jpg",
-          thumbWidth: 400,
-          thumbHeight: 250
+          path: "posts"
         },
         logs: {
           path: "logs",
           listTemplate: "log-list.js"
         }
       }
+    },
+
+    seo: {
+      fbAppId: false,
+      locale: "en_US",
+      twitterCreator: "@risanbagja",
+      twitterSite: false,
+      publisherName: "Risan Bagja",
+      publisherLogo: "https://avatars2.githubusercontent.com/u/3825242"
     }
   },
   plugins: [

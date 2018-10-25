@@ -1,9 +1,10 @@
+const path = require("path");
 const _ = require("lodash");
 const siteConfig = require("../gatsby-config").siteMetadata;
 const config = siteConfig.markdownCollection;
+const resolveTemplate = require("./resolve-template");
 
 const DEFAULT_PER_PAGE = 10;
-const LEADING_SLASH = /^\//;
 
 const has = (collection, key) =>
   _.has(config, `collections.${collection}.${key}`);
@@ -22,7 +23,8 @@ const getConfig = collection => ({
   path: getPath(collection),
   perPage: getPerPage(collection),
   listTemplate: getListTemplate(collection),
-  template: getTemplate(collection)
+  template: getTemplate(collection),
+  image: getImage(collection)
 });
 
 /**
@@ -81,11 +83,11 @@ const getListTemplate = collection => {
   const template = get(collection, "listTemplate");
 
   if (template) {
-    return template.replace(LEADING_SLASH, '');
+    return resolveTemplate(template);
   }
 
   if (config.hasOwnProperty("listTemplate")) {
-    return config.listTemplate.replace(LEADING_SLASH, '');
+    return resolveTemplate(config.listTemplate);
   }
 
   throw new Error(`The [${collection}.listTemplate] property is missing and the default [markdownCollection.listTemplate] property is not set.`);
@@ -116,18 +118,42 @@ const getTemplate = collection => {
   const template = get(collection, "template");
 
   if (template) {
-    return template.replace(LEADING_SLASH, '');
+    return resolveTemplate(template);
   }
 
   if (config.hasOwnProperty("template")) {
-    return config.template.replace(LEADING_SLASH, '');
+    return resolveTemplate(config.template);
   }
 
-  if (siteConfig.hasOwnProperty("defaultMarkdownTemplate")) {
-    return siteConfig.defaultMarkdownTemplate.replace(LEADING_SLASH, '');
+  if (siteConfig.hasOwnProperty("markdownTemplate")) {
+    return resolveTemplate(siteConfig.markdownTemplate);
   }
 
-  throw new Error(`The [${collection}.template] property is missing. No default [markdownCollection.template] or [siteMetadata.defaultMarkdownTemplate] are set.`);
+  throw new Error(`The [${collection}.template] property is missing. No default [markdownCollection.template] or [siteMetadata.markdownTemplate] are set.`);
+};
+
+/**
+ * Get the collection's image.
+ *
+ * @param {String} collection
+ * @return {String}
+ */
+const getImage = collection => {
+  const image = get(collection, "image");
+
+  if (image) {
+    return path.resolve(image);
+  }
+
+  if (config.hasOwnProperty("image")) {
+    return path.resolve(config.image);
+  }
+
+  if (siteConfig.hasOwnProperty("markdownImage")) {
+    return path.resolve(siteConfig.markdownImage);
+  }
+
+  throw new Error(`The [${collection}.image] property is missing. No default [markdownCollection.image] or [siteMetadata.markdownImage] are set.`);
 };
 
 module.exports = {
@@ -137,5 +163,6 @@ module.exports = {
   getPerPage,
   getListTemplate,
   getPagePath,
-  getTemplate
+  getTemplate,
+  getImage
 };

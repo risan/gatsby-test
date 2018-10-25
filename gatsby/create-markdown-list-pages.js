@@ -3,8 +3,7 @@ const {
   getConfig,
   getPagePath,
   mapConfigForContext
-} = require("./collection-config");
-const resolveTemplate = require("./resolve-template");
+} = require("./markdown-collection-config");
 
 /**
  * Create markdown collection list pages.
@@ -19,12 +18,11 @@ module.exports = (collectionCount, createPage) => {
     const configContext = mapConfigForContext(collection);
 
     const totalPages = Math.ceil(total / perPage);
-    const component = resolveTemplate(listTemplate);
 
     _.range(1, totalPages + 1).forEach(page => {
       createPage({
         path: getPagePath(collection, page),
-        component,
+        component: listTemplate,
         context: {
           collection: collection,
           ...configContext,
