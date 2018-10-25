@@ -60,7 +60,9 @@ export default ({
   datePublished,
   dateModified,
   author,
-  image: { src: imageSrc, width: imageWidth, height: imageHeight },
+  image: { src: imageSrc, width: imageWidth, height: imageHeight } = {},
+  concatenateSiteTitle = true,
+  concatenateSiteTitleString = '|',
   prependSiteTitle = true,
   useStructuredData = true
 }) => (
@@ -72,6 +74,7 @@ export default ({
             url
             lang
             title
+            description
             author
             seo {
               fbAppId
@@ -88,6 +91,15 @@ export default ({
     render={data => {
       const { seo, ...site } = data.site.siteMetadata;
       const baseUrl = site.url.replace(TRAILING_SLASH, '');
+      const descriptionValue = description ? description : site.description;
+
+      let pageTitle = title;
+
+      if (concatenateSiteTitle) {
+        pageTitle = prependSiteTitle
+          ? `${pageTitle} ${concatenateSiteTitleString} ${site.title}`
+          : `${site.title} ${concatenateSiteTitleString} ${pageTitle}`;
+      }
 
       const url = path => `${baseUrl}/${path.replace(LEADING_SLASH, '')}`;
 
@@ -99,16 +111,14 @@ export default ({
 
       return (
         <Helmet htmlAttributes={{ lang: lang ? lang : site.lang }}>
-          <title>
-            {prependSiteTitle ? `${title} | ${site.title}` : title}
-          </title>
+          <title>{pageTitle}</title>
           <link rel="canonical" href={url(path)} />
-          <meta name="description" content={description} />
+          <meta name="description" content={descriptionValue} />
 
           <meta property="og:url" content={url(path)} />
           <meta property="og:type" content="article" />
           <meta property="og:title" content={title} />
-          <meta property="og:description" content={description} />
+          <meta property="og:description" content={descriptionValue} />
           <meta property="og:locale" content={localeValue} />
           {imageSrc &&
             <meta property="og:image" content={url(imageSrc)} />}
@@ -121,7 +131,7 @@ export default ({
 
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content={title} />
-          <meta name="twitter:description" content={description} />
+          <meta name="twitter:description" content={descriptionValue} />
           {imageSrc &&
             <meta name="twitter:image" content={url(imageSrc)} />}
           {seo.twitterCreator &&
@@ -135,7 +145,7 @@ export default ({
                 getStructuredData({
                   title,
                   baseUrl,
-                  description,
+                  description: descriptionValue,
                   datePublished,
                   dateModified,
                   image: url(imageSrc),

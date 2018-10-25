@@ -3,9 +3,18 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import PostLink from "../components/post-link";
 import Pagination from "../components/pagination";
+import Seo from "../components/seo";
 
-export default ({ data, pageContext }) => (
+export default ({ data, pageContext, ...rest }) => console.log({ pageContext, rest }) || (
   <Layout>
+    <Seo
+      path={pageContext.slug}
+      title={`Posts Page ${pageContext.page}`}
+      concatenateSiteTitleString="-"
+      prependSiteTitle={false}
+      useStructuredData={false}
+    />
+
     <h2>All Posts</h2>
     <div>
       {data.allMarkdownRemark.edges.map(({ node }) => (

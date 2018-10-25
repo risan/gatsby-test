@@ -20,14 +20,18 @@ module.exports = (collectionCount, createPage) => {
     const totalPages = Math.ceil(total / perPage);
 
     _.range(1, totalPages + 1).forEach(page => {
+      const slug = getPagePath(collection, page);
+
       createPage({
-        path: getPagePath(collection, page),
+        path: slug,
         component: listTemplate,
         context: {
           collection: collection,
+          slug,
           ...configContext,
           limit: perPage,
           skip: (page - 1) * perPage,
+          page: page,
           previousPage: page === 1
             ? null
             : getPagePath(collection, page - 1),
