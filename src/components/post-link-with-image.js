@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import styles from "./post-link.module.css";
+import styles from "./post-link-with-image.module.css";
 
 export default ({ path, image, title, excerpt, date, displayDate }) => (
   <Link to={path} className={styles.link}>

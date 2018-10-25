@@ -1,9 +1,10 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import Layout from "../components/layout";
+import PostLinkWithImageCollection from "../components/post-link-with-image-collection";
 import Pagination from "../components/pagination";
 import Seo from "../components/seo";
-import styles from "./collection-list.module.css";
+import styles from "./collection.module.css";
 
 export default ({ data, pageContext }) => (
   <Layout>
@@ -15,18 +16,7 @@ export default ({ data, pageContext }) => (
 
     <h1 className={styles.title}>{pageContext.configTitle}</h1>
 
-    <ul className={styles.list}>
-      {data.allMarkdownRemark.edges.map(({ node }) => (
-        <li key={node.id} className={styles.item}>
-          <Link to={node.fields.slug} className={styles.link}>
-            {node.frontmatter.title}
-          </Link>
-          <span className={styles.date}>
-            {node.frontmatter.datePretty}
-          </span>
-        </li>
-      ))}
-    </ul>
+    <PostLinkWithImageCollection items={data.allMarkdownRemark.edges} />
 
     <Pagination
       previousPage={pageContext.previousPage}
@@ -40,15 +30,10 @@ export const query = graphql`
     allMarkdownRemark(
       filter: {
         fields: {
-          collection: {
-            eq: $collection
-          }
+          collection: { eq: $collection }
         }
       }
-      sort: {
-        fields: frontmatter___date
-        order: DESC
-      }
+      sort: { fields: frontmatter___date, order: DESC }
       skip: $skip
       limit: $limit
     ) {
@@ -57,12 +42,28 @@ export const query = graphql`
           id
           fields {
             slug
+            image {
+              childImageSharp {
+                featuredThumb: resize(
+                  width: 400
+                  height: 250
+                  cropFocus: CENTER
+                ) {
+                  src
+                }
+              }
+            }
           }
           frontmatter {
             title
             date
-            datePretty: date(formatString: "DD MMM YYYY")
+            displayDate: date(formatString: "DD MMMM YYYY")
+            excerpt
           }
+          excerpt(
+            pruneLength: 120
+            truncate: false
+          )
         }
       }
     }

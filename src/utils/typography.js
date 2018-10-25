@@ -8,7 +8,7 @@ bootstrapTheme.overrideThemeStyles = ({ rhythm }, options) => ({
     marginBottom: rhythm(1/3)
   },
   a: {
-    color: "#3935bf",
+    color: "#6241c5",
     textDecoration: "none"
   },
   "a:hover": {

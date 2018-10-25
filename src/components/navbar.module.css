@@ -16,10 +16,11 @@
 .menu a {
     display: block;
     padding: .25rem .75rem;
-    border: 1px solid #3935bf;
+    border: 1px solid #6241c5;
     border-radius: 3px;
 }
 
 .menu a:hover {
     border-color: #bf3599;
 }
+

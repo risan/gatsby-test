@@ -1,9 +1,3 @@
-.title {
-    font-size: 1.25rem;
-    line-height: 1.2;
-    margin-bottom: 1.25rem;
-}
-
 .list {
     list-style-type: none;
     margin-left: 0;
@@ -13,6 +7,11 @@
     padding-bottom: .5rem;
     margin-bottom: .5rem;
     border-bottom: 1px solid #f7f7f7;
+}
+
+.item:last-child {
+   border-bottom: none;
+   margin-bottom: 0;
 }
 
 .link {

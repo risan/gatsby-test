@@ -5,18 +5,19 @@ module.exports = {
     title: "Risan Bagja's Blog",
     description: "Programming journal of Risan Bagja Pradana. A passionate coder who writes codes for fun. Seriously.",
     headerTitle: "Risan Bagja",
-    headerDescription: "A journal of a passionate coder",
+    headerDescription: "Journal of a passionate coder",
     author: "Risan Bagja",
 
     markdownTemplate: "post.js",
     markdownImage: "content/images/default-featured.jpg",
     markdownCollection: {
-      listTemplate: "collection-list.js",
+      listTemplate: "collection.js",
       perPage: 10,
       collections: {
         posts: {
           path: "posts",
-          listTemplate: "post-list.js",
+          listTemplate: "post-collection.js",
+          title: "Programming Articles and Tutorials"
         },
         tips: {
           path: "tips",

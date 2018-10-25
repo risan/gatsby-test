@@ -101,7 +101,9 @@ export default ({
           : `${site.title} ${concatenateSiteTitleString} ${pageTitle}`;
       }
 
-      const url = path => `${baseUrl}/${path.replace(LEADING_SLASH, '')}`;
+      const url = path => path === "/"
+        ? baseUrl
+        : `${baseUrl}/${path.replace(LEADING_SLASH, '')}`;
 
       let localeValue = locale ? locale : seo.locale;
 
