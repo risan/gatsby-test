@@ -33,13 +33,13 @@ export default ({ data }) => (
     <section>
       <Container>
         <div className={styles.about}>
-          <h1>{data.site.siteMetadata.headerTitle}</h1>
+          <h1>Welcome to My Blog!</h1>
           <p>
-            Hi, welcome to my blog! My name is Risan Bagja Pradana. I code for
-            fun, seriously. I enjoy spending time writing clean and
-            maintainable code. This blog serves as a journal to document things
-            I learn as an avid programmer. Here you'll find articles, tutorials,
-            and some quick tips about programming.
+            My name is Risan Bagja. I code for fun, seriously.
+            I enjoy spending time writing clean and maintainable code.
+            This blog serves as a journal to document things I learn as an avid
+            programmer. Here you'll find articles, tutorials, and some quick
+            tips about programming.
           </p>
         </div>
       </Container>
