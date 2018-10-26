@@ -48,6 +48,7 @@ module.exports = {
         icon: "content/images/icon.png"
       }
     },
+    "gatsby-plugin-offline", // Place it after "gatsby-plugin-manifest"
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
     {
