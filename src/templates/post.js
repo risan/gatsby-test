@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
-import styles from "./post.module.css";
 
 const TOC_SELF_LINK_PATTERN = /(<li>\s?<a href="[\S]*#table-of-contents">\s?Table of Contents\s?<\/a>\s?<\/li>)/mi
 const TOC_HEADING_PATTERN = /(>\s?Table of Contents\s?<\/h2>)/mi
@@ -35,7 +34,7 @@ export default ({ data, pageContext }) => {
       <article>
         <h1>{frontmatter.title}</h1>
 
-        <p className={styles.date}>
+        <p>
           {frontmatter.lastUpdate ? (
             <Fragment>
               <span>Updated At</span>{" "}
