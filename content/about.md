@@ -30,3 +30,8 @@ Thank you for passing by! Check out my profiles on other websites too:
 * Me trying to answers some questions on [Stack Overflow](https://stackoverflow.com/users/5138222).
 * My rambling on Twitter: [@risanbagja](https://twitter.com/risanbagja).
 * My writing on [Medium](https://medium.com/risan)—mostly just the copies from this very blog.
+
+Credits:
+
+* May the Force illustration on the homepage by [Katerina Limpitsouni](https://undraw.co/illustrations).
+* The Darth Maul icon by [Dmitriy Bondarchuk](https://iconscout.com/contributors/dmitriy-bondarchuk).
