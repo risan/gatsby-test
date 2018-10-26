@@ -6,7 +6,6 @@ import Navbar from "../components/navbar";
 import PostLinkCollection from "../components/post-link-collection";
 import PostLinkWithImageCollection from "../components/post-link-with-image-collection";
 import Seo from "../components/seo";
-import logo from "./logo.png";
 import styles from "./index.module.css";
 
 export default ({ data }) => (
@@ -14,7 +13,7 @@ export default ({ data }) => (
     <Seo
       path="/"
       title={data.site.siteMetadata.title}
-      image={data.file.childImageSharp.openGraph}
+      image={data.openGraph.childImageSharp.image}
       concatenateSiteTitle={false}
       useStructuredData={false}
     />
@@ -22,7 +21,7 @@ export default ({ data }) => (
     <header className={styles.header}>
       <Container>
         <img
-          src={logo}
+          src={data.logo.childImageSharp.image.src}
           className={styles.logo}
           alt="May The Force by Katerina Limpitsoun"
         />
@@ -146,9 +145,16 @@ export const query = graphql`
         }
       }
     }
-    file(relativePath: { eq: "images/default-featured.jpg" }) {
+    logo: file(relativePath: { eq: "images/star-wars.png" }) {
       childImageSharp {
-        openGraph: original {
+        image: resize(width: 300) {
+          src
+        }
+      }
+    }
+    openGraph: file(relativePath: { eq: "images/default-featured.jpg" }) {
+      childImageSharp {
+        image: original {
           src
           width
           height
