@@ -17,7 +17,8 @@ module.exports = {
         posts: {
           path: "posts",
           listTemplate: "post-collection.js",
-          title: "Programming Articles and Tutorials"
+          title: "Programming Articles and Tutorials",
+          perPage: 3
         },
         tips: {
           path: "tips",
@@ -33,6 +34,18 @@ module.exports = {
       twitterSite: false,
       publisherName: "Risan Bagja",
       publisherLogo: "https://avatars2.githubusercontent.com/u/3825242"
+    },
+
+    sitemap: {
+      importantPaths: ["/", "/about/"],
+      excludePaths:[
+        "/dev-404-page/",
+        "/offline-plugin-app-shell-fallback/",
+        "/posts/",
+        "/posts/[0-9]+/",
+        "/tips/",
+        "/tips/[0-9]+/"
+      ]
     }
   },
   plugins: [
