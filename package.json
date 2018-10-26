@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "rm -rf ./.cache && gatsby develop",
     "build": "gatsby build",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "deploy": "gatsby build && gh-pages -d public -b master"
   },
   "dependencies": {
     "gatsby": "^2.0.28",
@@ -30,5 +31,8 @@
     "sitemap": "^2.1.0",
     "typography": "^0.16.17",
     "typography-theme-bootstrap": "^0.16.7"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
   }
 }

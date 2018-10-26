@@ -17,8 +17,7 @@ module.exports = {
         posts: {
           path: "posts",
           listTemplate: "post-collection.js",
-          title: "Programming Articles and Tutorials",
-          perPage: 3
+          title: "Programming Articles and Tutorials"
         },
         tips: {
           path: "tips",
