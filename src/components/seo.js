@@ -71,7 +71,7 @@ export default ({
       {
         site {
           siteMetadata {
-            url
+            siteUrl
             lang
             title
             description
@@ -90,7 +90,7 @@ export default ({
     `}
     render={data => {
       const { seo, ...site } = data.site.siteMetadata;
-      const baseUrl = site.url.replace(TRAILING_SLASH, '');
+      const baseUrl = site.siteUrl.replace(TRAILING_SLASH, '');
       const descriptionValue = description ? description : site.description;
 
       let pageTitle = title;

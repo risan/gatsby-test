@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    url: "https://risanbagja.com",
+    siteUrl: "https://risanbagja.com",
     lang: "en",
     title: "Risan Bagja's Blog",
     description: "Programming journal of Risan Bagja Pradana. A passionate coder who writes codes for fun. Seriously.",
