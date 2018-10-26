@@ -70,6 +70,7 @@ export default ({
     query={graphql`
       {
         site {
+          pathPrefix
           siteMetadata {
             siteUrl
             lang
@@ -89,8 +90,12 @@ export default ({
       }
     `}
     render={data => {
+
       const { seo, ...site } = data.site.siteMetadata;
-      const baseUrl = site.siteUrl.replace(TRAILING_SLASH, '');
+      const pathPrefix = site.pathPrefix
+        ? site.pathPrefix === "/" ? "" : site.pathPrefix
+        : "";
+      const baseUrl = site.siteUrl.replace(TRAILING_SLASH, '') + pathPrefix;
       const descriptionValue = description ? description : site.description;
 
       let pageTitle = title;
