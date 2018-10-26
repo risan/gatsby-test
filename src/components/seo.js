@@ -90,7 +90,6 @@ export default ({
       }
     `}
     render={data => {
-
       const { seo, ...site } = data.site.siteMetadata;
       const pathPrefix = site.pathPrefix
         ? site.pathPrefix === "/" ? "" : site.pathPrefix
