@@ -14,6 +14,7 @@ export default ({ data }) => (
     <Seo
       path="/"
       title={data.site.siteMetadata.title}
+      image={data.file.childImageSharp.openGraph}
       concatenateSiteTitle={false}
       useStructuredData={false}
     />
@@ -142,6 +143,15 @@ export const query = graphql`
             date
             datePretty: date(formatString: "DD MMM YYYY")
           }
+        }
+      }
+    }
+    file(relativePath: { eq: "images/default-featured.jpg" }) {
+      childImageSharp {
+        openGraph: original {
+          src
+          width
+          height
         }
       }
     }

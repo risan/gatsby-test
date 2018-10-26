@@ -69,11 +69,7 @@ export const query = graphql`
         slug
         image {
           childImageSharp {
-            openGraph: resize(
-              width: 1200
-              height: 640
-              cropFocus: CENTER
-            ) {
+            openGraph: original {
               src
               width
               height

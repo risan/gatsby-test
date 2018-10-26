@@ -11,6 +11,7 @@ export default ({ data, pageContext }) => (
     <Seo
       path={pageContext.slug}
       title={pageContext.configTitle}
+      image={data.file.childImageSharp.openGraph}
       useStructuredData={false}
     />
 
@@ -53,6 +54,15 @@ export const query = graphql`
             date
             datePretty: date(formatString: "DD MMM YYYY")
           }
+        }
+      }
+    }
+    file(relativePath: { eq: "images/default-featured.jpg" }) {
+      childImageSharp {
+        openGraph: original {
+          src
+          width
+          height
         }
       }
     }

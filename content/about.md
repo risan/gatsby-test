@@ -4,6 +4,7 @@ excerpt: Hi, my name is Risan Bagja. I code for fun, seriously.
 date: 2017-10-09 17:06:00
 lastUpdate: 2018-10-26 02:50:00
 concatenateSiteTitle: false
+image: "images/risan.jpg"
 ---
 ![Hi, my name is Risan!](images/risan.jpg)
 
