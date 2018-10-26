@@ -36,6 +36,18 @@ module.exports = {
     }
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: "Risan Bagja",
+        short_name: "Risan Bagja",
+        start_url: "/",
+        background_color: "#e5e5de",
+        theme_color: "#3b3b3b",
+        display: "minimal-ui",
+        icon: "content/images/icon.png"
+      }
+    },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
     {
