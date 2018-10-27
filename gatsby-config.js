@@ -49,6 +49,16 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: "gatsby-plugin-google-analytics",
+      options: {
+        trackingId: "UA-27136969-11",
+        // Puts tracking script in the head instead of the body
+        head: false,
+        anonymize: true,
+        respectDNT: true
+      }
+    },
+    {
       resolve: "gatsby-plugin-manifest",
       options: {
         name: "Risan Bagja",
