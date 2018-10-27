@@ -1,7 +1,25 @@
 {
   "name": "risanbagja",
   "description": "Risan Bagja personal webiste",
+  "version": "3.0.0",
   "license": "MIT",
+  "homepage": "https://risanbagja.com",
+  "author": {
+    "name": "Risan Bagja Pradana",
+    "email": "risanbagja@gmail.com",
+    "url": "https://risanbagja.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/risan/risan.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/risan/risan.github.io/issues"
+  },
+  "keywords": [
+    "blog",
+    "gatsby"
+  ],
   "scripts": {
     "dev": "rm -rf ./.cache && gatsby develop",
     "build": "gatsby build",
