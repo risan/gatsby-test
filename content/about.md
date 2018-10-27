@@ -22,7 +22,7 @@ I have extensive experience with PHP and JavaScript. For the backend framework, 
 
 However, I'm not really good at design. Luckily we now have beautiful CSS frameworks like Bootstrap or Bulma. The typography on this blog is even generated programmatically by a JavaScript package: [Typography.js](http://kyleamathews.github.io/typography.js/).
 
-This blog serves as a journal to document things I learn as an avid programmer. It's powered by [Gatsby](https://www.gatsbyjs.org)—a React based static site generator. And it's hosted for free on Github Pages. You can check out the entire [source code on Github](https://github.com/risan/risan.github.io).
+This blog serves as a journal to document things I learn as an avid programmer. It's powered by [Gatsby](https://www.gatsbyjs.org)—a React based static site generator. And it's hosted for free on [Netlify](https://netlify.com). You can check out the entire [source code on Github](https://github.com/risan/risan.github.io).
 
 Thank you for passing by! Check out my profiles on other websites too:
 
