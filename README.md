@@ -59,4 +59,4 @@ The static files will be generated at the `public` directory.
 
 ## License
 
-MIT © [Risan Bagja Pradana](https://risan.io)
+MIT © [Risan Bagja Pradana](https://bagja.net)
